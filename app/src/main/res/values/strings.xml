@@ -3,4 +3,12 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="desculpas">
+        <item>Não vai dá, vou levar minha avó na capoeira!</item>
+        <item>Puts mano, tenho um funeral de anão pra ir</item>
+        <item>Ixi, nesse dia ae vou participar de um torneio de peteca</item>
+        <item>mals cara, uns amigos meus me chamaram pra sair, ae eu vou ficar em casa pensando em uma desculpa pra dar pra eles</item>
+        <item>vou estudar!</item>
+    </string-array>
 </resources>
