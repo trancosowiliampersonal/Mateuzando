@@ -34,6 +34,14 @@
             android:id="@+id/mensage"
             android:background="@drawable/dialogo_a" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="Gerar Desculpa"
+            android:onClick="geraDesulpa"/>
+
     </RelativeLayout>
 
 </RelativeLayout>
