@@ -38,7 +38,38 @@ public class MainActivity extends AppCompatActivity {
         fotoToolBar = (CircularImageView)findViewById(R.id.foto_toobar);
         mensage = (TextView)findViewById(R.id.mensage);
 
+        popularFotos();
         desculpas = getResources().getStringArray(R.array.desculpas);
+        geraDesulpa(null);
+    }
+
+    private void popularFotos(){
+        fotos = new Drawable[]{
+                getResources().getDrawable(R.drawable.mateus001),
+                getResources().getDrawable(R.drawable.mateus002),
+                getResources().getDrawable(R.drawable.mateus003),
+                getResources().getDrawable(R.drawable.mateus004),
+                getResources().getDrawable(R.drawable.mateus005),
+                getResources().getDrawable(R.drawable.mateus006),
+                getResources().getDrawable(R.drawable.mateus007),
+                getResources().getDrawable(R.drawable.mateus008),
+                getResources().getDrawable(R.drawable.mateus009),
+                getResources().getDrawable(R.drawable.mateus010),
+                getResources().getDrawable(R.drawable.mateus011),
+                getResources().getDrawable(R.drawable.mateus012),
+                getResources().getDrawable(R.drawable.mateus013),
+                getResources().getDrawable(R.drawable.mateus014),
+                getResources().getDrawable(R.drawable.mateus015),
+                getResources().getDrawable(R.drawable.mateus016),
+                getResources().getDrawable(R.drawable.mateus017),
+                getResources().getDrawable(R.drawable.mateus018),
+                getResources().getDrawable(R.drawable.mateus019)
+        };
+    }
+
+    public void geraDesulpa(View v){
+        fotoToolBar.setImageDrawable(fotos[r.nextInt(fotos.length-1)]);
+        mensage.setText(desculpas[r.nextInt(desculpas.length-1)]);
     }
 
 }
