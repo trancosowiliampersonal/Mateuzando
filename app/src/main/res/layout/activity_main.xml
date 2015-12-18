@@ -24,23 +24,60 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="12dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="40dp"
+            android:paddingBottom="10dp"
+            android:layout_marginBottom="15dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:textSize="16sp"
+            android:id="@+id/mensageB"
+            android:text="Koe, vamos sair?"
+            android:background="@drawable/dialogo_b" />
+
+        <TextView
+            android:layout_below="@+id/mensageB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="17dp"
             android:paddingTop="12dp"
             android:paddingLeft="28dp"
             android:paddingRight="8dp"
             android:paddingBottom="10dp"
             android:textSize="16sp"
-            android:id="@+id/mensage"
+            android:id="@+id/mensageA"
             android:background="@drawable/dialogo_a" />
 
-        <Button
+        <EditText
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/btnSend"
+            android:paddingLeft="8dp"
+            android:textColor="#111111"
+            android:enabled="false"
+            android:text="Koe, vamos sair?"
+            android:background="@drawable/edt_balao"
+            android:layout_marginRight="4dp"
+            android:id="@+id/edtSend"/>
+
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:text="Gerar Desculpa"
-            android:onClick="geraDesulpa"/>
+            android:src="@drawable/sent"
+            android:background="@drawable/button_send"
+            android:id="@+id/btnSend"
+            android:onClick="geraDesulpa"
+            />
+
+
+
 
     </RelativeLayout>
 
