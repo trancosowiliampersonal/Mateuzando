@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private CircularImageView fotoToolBar;
-    private TextView mensage;
+    private TextView mensageA;
+    private TextView mensageB;
 
     private Drawable[] fotos;
     private String[] desculpas;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         fotoToolBar = (CircularImageView)findViewById(R.id.foto_toobar);
-        mensage = (TextView)findViewById(R.id.mensage);
+        mensageA = (TextView)findViewById(R.id.mensageA);
 
         popularFotos();
         desculpas = getResources().getStringArray(R.array.desculpas);
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void geraDesulpa(View v){
         fotoToolBar.setImageDrawable(fotos[r.nextInt(fotos.length-1)]);
-        mensage.setText(desculpas[r.nextInt(desculpas.length-1)]);
+        mensageA.setText(desculpas[r.nextInt(desculpas.length-1)]);
     }
 
 }
