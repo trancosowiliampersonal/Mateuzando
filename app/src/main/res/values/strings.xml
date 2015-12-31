@@ -7,8 +7,14 @@
     <string-array name="desculpas">
         <item>Não vai dá, vou levar minha avó na capoeira!</item>
         <item>Puts mano, tenho um funeral de anão pra ir</item>
-        <item>Ixi, nesse dia ae vou participar de um torneio de peteca</item>
+        <item>Ixi, nem vai dá, vou participar de um torneio de peteca</item>
         <item>mals cara, uns amigos meus me chamaram pra sair, ae eu vou ficar em casa pensando em uma desculpa pra dar pra eles</item>
         <item>vou estudar!</item>
+    </string-array>
+
+    <string-array name="chamadas">
+        <item>Ow, bora dar rolezinho?</item>
+        <item>Hein, vamos sair?</item>
+        <item>Vamo fazer alguma coisa cara!</item>
     </string-array>
 </resources>
