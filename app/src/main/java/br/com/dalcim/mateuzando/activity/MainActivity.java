@@ -1,10 +1,14 @@
 package br.com.dalcim.mateuzando.activity;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.github.siyamed.shapeimageview.CircularImageView;
@@ -19,9 +23,17 @@ public class MainActivity extends AppCompatActivity {
     private CircularImageView fotoToolBar;
     private TextView mensageA;
     private TextView mensageB;
+    private EditText edtSend;
+    private ImageButton btnShare;
 
     private Drawable[] fotos;
     private String[] desculpas;
+    private String[] chamadas;
+
+    private String desculpaCorrente;
+    private String chamadaCorrente;
+
+    Handler handler;
 
     private Random r;
 
@@ -31,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         r = new Random();
+        handler = new Handler();
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
         toolbar.setTitle("");
@@ -41,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
         popularFotos();
         desculpas = getResources().getStringArray(R.array.desculpas);
+        chamadas = getResources().getStringArray(R.array.chamadas);
+
+        chamadaCorrente = chamadas[r.nextInt(chamadas.length)];
+        edtSend.setText(chamadaCorrente);
+
         geraDesulpa(null);
     }
 
