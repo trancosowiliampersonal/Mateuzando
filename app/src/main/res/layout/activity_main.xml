@@ -45,7 +45,7 @@
             android:layout_marginRight="17dp"
             android:paddingTop="12dp"
             android:paddingLeft="28dp"
-            android:paddingRight="8dp"
+            android:paddingRight="12dp"
             android:paddingBottom="10dp"
             android:textSize="16sp"
             android:id="@+id/mensageA"
@@ -60,7 +60,6 @@
             android:paddingLeft="8dp"
             android:textColor="#111111"
             android:enabled="false"
-            android:text="Koe, vamos sair?"
             android:background="@drawable/edt_balao"
             android:layout_marginRight="4dp"
             android:id="@+id/edtSend"/>
