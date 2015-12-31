@@ -10,14 +10,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.github.siyamed.shapeimageview.CircularImageView;
 
 import java.util.Random;
 
 import br.com.dalcim.mateuzando.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     private Toolbar toolbar;
     private CircularImageView fotoToolBar;
@@ -49,8 +52,11 @@ public class MainActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
 
-        fotoToolBar = (CircularImageView)findViewById(R.id.foto_toobar);
-        mensageA = (TextView)findViewById(R.id.mensageA);
+        fotoToolBar = (CircularImageView) findViewById(R.id.foto_toobar);
+        mensageA = (TextView) findViewById(R.id.mensageA);
+        mensageB = (TextView) findViewById(R.id.mensageB);
+        edtSend = (EditText) findViewById(R.id.edtSend);
+        btnShare = (ImageButton)findViewById(R.id.btnShare);
 
         popularFotos();
         desculpas = getResources().getStringArray(R.array.desculpas);
@@ -60,6 +66,21 @@ public class MainActivity extends AppCompatActivity {
         edtSend.setText(chamadaCorrente);
 
         geraDesulpa(null);
+
+        btnShare.setOnClickListener(new ImageButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
+                whatsappIntent.setType("text/plain");
+                whatsappIntent.setPackage("com.whatsapp");
+                whatsappIntent.putExtra(Intent.EXTRA_TEXT, desculpaCorrente);
+                try {
+                    startActivity(whatsappIntent);
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(MainActivity.this, "Whatsapp have not been installed.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void popularFotos(){
@@ -87,8 +108,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void geraDesulpa(View v){
-        fotoToolBar.setImageDrawable(fotos[r.nextInt(fotos.length-1)]);
-        mensageA.setText(desculpas[r.nextInt(desculpas.length-1)]);
+        YoYo.with(Techniques.TakingOff).duration(0).playOn(mensageA);
+        YoYo.with(Techniques.TakingOff).duration(0).playOn(mensageB);
+        String aux;
+
+        aux = chamadas[r.nextInt(chamadas.length)];
+        while(aux.equals(chamadaCorrente)){
+            aux = chamadas[r.nextInt(chamadas.length)];
+        }
+        chamadaCorrente = aux;
+        mensageB.setText(edtSend.getText().toString());
+        edtSend.setText(chamadaCorrente);
+
+        fotoToolBar.setImageDrawable(fotos[r.nextInt(fotos.length)]);
+
+        aux = desculpas[r.nextInt(desculpas.length)];
+        while(aux.equals(desculpaCorrente)){
+            aux = desculpas[r.nextInt(desculpas.length)];
+        }
+        desculpaCorrente = aux;
+        mensageA.setText(desculpaCorrente);
+
+        YoYo.with(Techniques.ZoomIn).duration(300).playOn(mensageB);
+
+
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                YoYo.with(Techniques.ZoomIn).duration(300).playOn(mensageA);
+            }
+        }, 1700);
+
+
     }
 
 }
